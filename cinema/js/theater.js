@@ -940,7 +940,7 @@ function registerPlayer( type, object ) {
 			this.think = function() {
 				if (this.player != null) {
 					if (this.videoId != this.lastVideoId) {
-						this.player.src({ type: "rtmp/mp4", src: "rtmp://192.223.29.172:1935/live/" + this.videoId + "_src"}); // this.player.loadSource("rtmp://192.223.29.172:1935/live/" + this.videoId);
+						this.player.loadSource("https://192.223.29.172:1935/live/" + this.videoId);
 						this.lastVideoId = this.videoId;
 						this.lastSrcChange = Math.round(Date.now()/1000) + 5; // Wait 5 seconds and then try again if it isn't working
 					}
@@ -950,7 +950,7 @@ function registerPlayer( type, object ) {
 						if (curTime >= this.lastSrcChange) {
 							if (this.player.currentLevel === -1) {
 								console.log("Attempt to load RTMP Stream Failed! Retrying...");
-								this.player.src({ type: "rtmp/mp4", src: "rtmp://192.223.29.172:1935/live/" + this.videoId + "_src"}); // this.player.loadSource("rtmp://192.223.29.172:1935/live/" + this.videoId);
+								this.player.loadSource("https://192.223.29.172:1935/live/" + this.videoId);
 							}
 
 							this.lastSrcChange = Math.round(Date.now()/1000) + 5;
@@ -1004,7 +1004,7 @@ function registerPlayer( type, object ) {
 
 				if ( this.player != null ) {
 					if ( this.videoId != this.lastVideoId ) {
-						this.player.src({ type: "rtmp/mp4", src: "rtmp://192.223.29.172:1935/live/" + this.videoId + "_src"});
+						this.player.src({ type: "rtmp/mp4", src: "https://192.223.29.172:1935/live/" + this.videoId + "_src"});
 						this.lastVideoId = this.videoId;
 						this.lastSrcChange = Math.round(Date.now()/1000) + 5; // Wait 5 seconds and then try again if it isn't working
 					}
