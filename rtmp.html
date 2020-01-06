@@ -7,7 +7,7 @@
 					var url = new URL(window.location.href);
 
 					document.getElementById("theater").contentWindow.theater.setVolume(100);
-					document.getElementById("theater").contentWindow.theater.loadVideo("yukirtmp", url.searchParams.get("user"));
+					document.getElementById("theater").contentWindow.theater.loadVideo("sleepyRTMP", url.searchParams.get("user"));
 					setTimeout(function(){
 						document.getElementById("theater").contentWindow.theater.toggleControls(true);
 						document.getElementById("theater").contentWindow.theater.player.player.requestFullscreen();
