@@ -1,14 +1,7 @@
 {
 	"yuni":				{"title":"Yuni's RTMP Stream"},
 	"krystal":			{"title":"Krystal's RTMP Stream"},
-	"ocean":			{"title":"Ocean Daddy's RTMP Stream"},
-	"jimtheknight":			{"title":"JimtheKnight's RTMP Stream"},
-	"firey":			{"title":"FireyKitsune's RTMP Stream"},	
-	"prox":				{"title":"Prox's RTMP Stream"},
-	"katte":			{"title":"KattePurdyy's RTMP Stream"},
 	"lunarray":			{"title":"LunarRay's RTMP Stream"},
-	"maichan":			{"title":"Mai chan's RTMP Stream"},
-	"complex":			{"title":"Complex's RTMP Stream"},
-	"kurorin":			{"title":"Kurorin's RTMP Stream"},
-	"cotton":			{"title":"Akuma's RTMP Stream"}
-}	
+	"gamer":			{"title":"Gamer's RTMP Stream"},
+	"maizoon":			{"title":"Maizoon's RTMP Stream"}
+}
