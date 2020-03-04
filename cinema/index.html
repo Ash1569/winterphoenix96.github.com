@@ -62,7 +62,19 @@
 			<div class="info-container">
 
 				<!-- Flash Detection -->
-				<div id="noflash" class="info warning"></div>
+					<div id="noflash" class="info warning">
+					<script type="text/javascript">
+					var chromeVer = /Chrome\/(\d+)/;
+					var clientIsChromium = chromeVer.exec(navigator.userAgent)[1] > 18;
+					var clientHasFlash = swfobject.hasFlashPlayerVersion("1");
+					var clientHasCodecSupport = document.createElement("video").canPlayType('video/mp4; codecs="avc1.42E01E, mp4a.40.2"') == "probably";
+
+					var elem = document.getElementById("missingComponent");
+					if (!clientIsChromium || (!clientHasFlash && !clientHasCodecSupport)) {
+						elem.innerText = "Video Fixes not detected! Most videos will not play properly. Say /fixvideos for instructions on how to fix this.";
+					}
+					</script>
+				</div>
 
 				<div class="info">To request a video, open the queue by holding down Q and press the 'Request Video' button</div>
 
@@ -78,13 +90,6 @@
 		</div>
 
 		<script src="https://f.vimeocdn.com/js/froogaloop2.min.js" type="text/javascript"></script>
-		<script type="text/javascript">
-		var elem = document.getElementById("noflash");
-		if(!swfobject.hasFlashPlayerVersion("1")) {
-			elem.innerText = "Adobe Flash Player not detected! Some videos may not load, press F2 for installation instructions.";
-			gmod.detectFlash(false);
-		}
-		</script>
 		
 	</body>
 </html>
