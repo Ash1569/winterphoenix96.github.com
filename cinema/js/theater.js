@@ -10,7 +10,7 @@ if (!String.prototype.startsWith) {
 
 var theater = {
 
-	VERSION: "3.0.4-YukiTheater",
+	VERSION: "1.2.4-SleepyTimeCinema",
 
 	playerContainer: null,
 	playerContent: null,
@@ -269,7 +269,7 @@ function registerPlayer( type, object ) {
 	theater.loadVideo( "viooz", "", 0 )
 	thetaer.loadVideo( "dailymotion", "x1946tk", 0 )
 	theater.loadVideo( "ustreamlive", "1524" )
-	theater.loadVideo( "sleepyRTMP", "" )
+	theater.loadVideo( "sleepyRTMP", "krystal" )
 	
 */
 (function() {
@@ -901,7 +901,7 @@ function registerPlayer( type, object ) {
 	registerPlayer( "ustream", UstreamVideo );
 	registerPlayer( "ustreamlive", UstreamVideo );
 
-	var YukiTheaterRTMP = function() { // SleepyRTMP / RTMP
+	var SleepyRTMP = function() { // SleepyRTMP / RTMP
 		var pre_player = document.createElement('video');
 		pre_player.id = "player";
 
@@ -940,7 +940,7 @@ function registerPlayer( type, object ) {
 			this.think = function() {
 				if (this.player != null) {
 					if (this.videoId != this.lastVideoId) {
-						this.player.loadSource("https://192.223.29.172:1935/live/" + this.videoId);
+						this.player.loadSource("rtmp://192.223.29.172:1935/live/" + this.videoId);
 						this.lastVideoId = this.videoId;
 						this.lastSrcChange = Math.round(Date.now()/1000) + 5; // Wait 5 seconds and then try again if it isn't working
 					}
@@ -950,7 +950,7 @@ function registerPlayer( type, object ) {
 						if (curTime >= this.lastSrcChange) {
 							if (this.player.currentLevel === -1) {
 								console.log("Attempt to load RTMP Stream Failed! Retrying...");
-								this.player.loadSource("https://192.223.29.172:1935/live/" + this.videoId);
+								this.player.loadSource("rtmp://192.223.29.172:1935/live/" + this.videoId);
 							}
 
 							this.lastSrcChange = Math.round(Date.now()/1000) + 5;
@@ -1004,7 +1004,7 @@ function registerPlayer( type, object ) {
 
 				if ( this.player != null ) {
 					if ( this.videoId != this.lastVideoId ) {
-						this.player.src({ type: "rtmp/mp4", src: "https://192.223.29.172:1935/live/" + this.videoId + "_src"});
+						this.player.src({ type: "rtmp/mp4", src: "rtmp://192.223.29.172:1935/live/" + this.videoId + "_src"});
 						this.lastVideoId = this.videoId;
 						this.lastSrcChange = Math.round(Date.now()/1000) + 5; // Wait 5 seconds and then try again if it isn't working
 					}
@@ -1047,7 +1047,7 @@ function registerPlayer( type, object ) {
 			});
 		}
 	};
-	registerPlayer( "sleepyRTMP", YukiTheaterRTMP );
+	registerPlayer( "sleepyRTMP", SleepyRTMP );
 	
 	var JWPlayer_1 = function() {
 		// JW7 Key
